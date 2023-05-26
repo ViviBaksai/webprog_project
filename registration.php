@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // a beküldött adatokat ellenőrzése és feldolgozása
+
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirm_password"];
@@ -26,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // adatbáziskapcsolat beállítása, ide majd be kell illeszteni valamit attól függően, hogy szervert vagy saját gépet használunk majd
-    $host = "adatbazis-szerver-cime";
-    $dbname = "adatbazis-nev";
-    $username = "adatbazis-felhasznalonev";
-    $dbPassword = "adatbazis-jelszo";
+    $host = "127.0.0.1";
+    $dbname = "movie";
+    $username = "admin";
+    $dbPassword = "password";
 
     try {
         // kapcsolódás az adatbázishoz
@@ -53,5 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Adatbázis kapcsolódási hiba: " . $e->getMessage();
         exit();
     }
+}
+else{
+    echo "hiba";
+    exit();
 }
 ?>
